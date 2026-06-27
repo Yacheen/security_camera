@@ -91,7 +91,7 @@ static camera_config_t camera_config = {
     .ledc_channel = LEDC_CHANNEL_0,
 
     .pixel_format = PIXFORMAT_JPEG, //YUV422,GRAYSCALE,RGB565,JPEG
-    .frame_size = FRAMESIZE_QVGA,    //QQVGA-UXGA, For ESP32, do not use sizes above QVGA when not JPEG. The performance of the ESP32-S series has improved a lot, but JPEG mode always gives better frame rates.
+    .frame_size = FRAMESIZE_VGA,    //QQVGA-UXGA, For ESP32, do not use sizes above QVGA when not JPEG. The performance of the ESP32-S series has improved a lot, but JPEG mode always gives better frame rates.
 
     .jpeg_quality = 12, //0-63, for OV series camera sensors, lower number means higher quality
     .fb_count = 1,       //When jpeg mode is used, if fb_count more than one, the driver will work in continuous mode.
@@ -310,8 +310,8 @@ void app_main(void)
         //     continue;
         // }
 
-        struct sockaddr_storage source_addr; // large enough for both ipv4 and ipv6
-        socklen_t socklen = sizeof(source_addr);
+        // struct sockaddr_storage source_addr; // large enough for both ipv4 and ipv6
+        // socklen_t socklen = sizeof(source_addr);
         // receives in 512 chunks, but buffer is 4096 in size
         // expecting len of pic.
         
@@ -335,7 +335,7 @@ void app_main(void)
         // ESP_LOGI(TAG, "Total chunks collected: %d", chunks_collected);
         // ESP_LOGI(TAG, "beginning of jpeg as hex: %x, end: %x", pic->buf[0], pic->buf[pic->len - 1]);
         esp_camera_fb_return(pic);
-        vTaskDelay(500 / portTICK_RATE_MS);
+        vTaskDelay(50 / portTICK_RATE_MS);
     }
 #else
     ESP_LOGE(TAG, "Camera support is not available for this chip");
