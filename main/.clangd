@@ -1,0 +1,25 @@
+CompileFlags:
+#   Add:
+#     - -IC:\msys\ucrt64\include
+#     - -I../include
+#     - --target=x86_64-pc-windows-gnu
+  Remove:
+#   Diagnostics:
+      - -mlongcalls
+      - -fno-shrink-wrap
+      - -fstrict-volatile-bitfields
+      - -fno-tree-switch-conversion
+      - -fzero-init-padding-bits=all
+      - -fno-malloc-dce
+      - -mdisable-hardware-atomics
+      - -mfix-esp32-psram-cache-issue
+      - -mfix-esp32-psram-cache-strategy=memw
+# 1. Unknown argument '-mlongcalls'; did you mean '-mlong-calls'? [drv_unknown_argument_with_suggestion]
+# 2. Unknown argument: '-mdisable-hardware-atomics' [drv_unknown_argument]
+# 3. Unknown argument: '-mfix-esp32-psram-cache-issue' [drv_unknown_argument]
+# 4. Unknown argument: '-mfix-esp32-psram-cache-strategy=memw' [drv_unknown_argument]
+# 5. Unknown argument: '-fno-shrink-wrap' [drv_unknown_argument]
+# 6. Unknown argument: '-fstrict-volatile-bitfields' [drv_unknown_argument]
+# 7. Unknown argument: '-fno-tree-switch-conversion' [drv_unknown_argument]
+# 8. Unknown argument: '-fzero-init-padding-bits=all' [drv_unknown_argument]
+# 9. Unknown argument: '-fno-malloc-dce' [drv_unknown_argument]
