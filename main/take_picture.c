@@ -299,7 +299,7 @@ void app_main(void)
         if (err < 0) {
             ESP_LOGE(TAG, "Error occurred during sending: errno %d", errno);
             esp_camera_fb_return(pic);
-            vTaskDelay(3000 / portTICK_RATE_MS);
+            vTaskDelay(1000 / portTICK_RATE_MS);
             continue;
         }
 
@@ -335,7 +335,7 @@ void app_main(void)
         // ESP_LOGI(TAG, "Total chunks collected: %d", chunks_collected);
         // ESP_LOGI(TAG, "beginning of jpeg as hex: %x, end: %x", pic->buf[0], pic->buf[pic->len - 1]);
         esp_camera_fb_return(pic);
-        vTaskDelay(50 / portTICK_RATE_MS);
+        // vTaskDelay(50 / portTICK_RATE_MS);
     }
 #else
     ESP_LOGE(TAG, "Camera support is not available for this chip");
