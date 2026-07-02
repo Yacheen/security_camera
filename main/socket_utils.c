@@ -22,7 +22,7 @@ int send_all_as_chunks(int sock, uint8_t *buf, size_t buf_size, struct sockaddr_
             }
             return 0;
         }
-        vTaskDelay(75 / portTICK_PERIOD_MS);
+        vTaskDelay(100 / portTICK_PERIOD_MS);
     }
     return -1;
 }
